@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_012446) do
+ActiveRecord::Schema.define(version: 2021_01_10_043618) do
 
   create_table "nows", force: :cascade do |t|
     t.text "now_body"
-    t.integer "hobby_code"
+    t.string "hobby_code"
     t.string "address"
     t.float "latitude"
     t.float "longitude"

@@ -29,6 +29,9 @@
       <td><%= now.now_body %></td>
       <td><%= now.hobby_code %></td>
       <td><%= now.address %></td>
+      <% if current_user == now.user %>
+       <td><%= link_to "Destroy", now_path(now.id), method: :delete %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

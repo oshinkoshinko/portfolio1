@@ -19,6 +19,10 @@ class NowsController < ApplicationController
   end
 
   def destroy
+   # binding.pry
+    @now = Now.find(params[:id])
+    @now.destroy
+    redirect_to request.referer
   end
 
   private

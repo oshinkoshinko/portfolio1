@@ -2,9 +2,6 @@
   <h2>Doing</h2>
     <div>
       <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-      <button type="button" class="btn btn-secondary rounded-circle p-0" style="width:2rem;height:2rem;">
-        <i class="fas fa-user-edit"></i>
-      </button>
     </div>
     <div>
       <%= form_with model: @now_new, local:true do |f| %>

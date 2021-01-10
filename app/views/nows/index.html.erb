@@ -2,7 +2,9 @@
   <h2>Doing</h2>
     <div>
       <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-      <%= link_to "Edit", edit_user_path(current_user) %>
+      <button type="button" class="btn btn-secondary rounded-circle p-0" style="width:2rem;height:2rem;">
+        <i class="fas fa-user-edit"></i>
+      </button>
     </div>
     <div>
       <%= form_with model: @now_new, local:true do |f| %>
@@ -23,6 +25,10 @@
       <td>Doing</td>
       <td>Category</td>
       <td>Place</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
   </thead>
   <tbody>
@@ -39,13 +45,13 @@
       <% if now.favorited_by?(current_user) %>
       <td>
         <%= link_to now_favorites_path(now), method: :delete do %>
-          ❤️<%= now.favorites.count %>
+          <i class="fas fa-thumbs-up"></i>️<%= now.favorites.count %>
         <% end %>
       </td>
       <% else %>
       <td>
         <%= link_to now_favorites_path(now), method: :post do %>
-          ♡️<%= now.favorites.count %>
+          <i class="far fa-thumbs-up"></i>️<%= now.favorites.count %>
         <% end %>
       </td>
       <% end %>
@@ -54,10 +60,12 @@
           💭
         <% end %>
       </td>
+      <td>
       <% if current_user == now.user %>
-       <td><%= link_to "Edit", edit_now_path(now.id) %></td>
-       <td><%= link_to "Destroy", now_path(now.id), method: :delete %></td>
+       <%= link_to "Edit", edit_now_path(now.id) %>
+       <%= link_to "Destroy", now_path(now.id), method: :delete %>
       <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

@@ -71,7 +71,10 @@ gem "dotenv-rails"
 
 gem 'http'
 
+gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'jp_prefecture'
 
 gem 'kaminari','~> 1.2.1'
+
+gem 'font-awesome-sass', '~> 5.13'

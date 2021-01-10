@@ -1,16 +1,17 @@
-
-<h2>Doing</h2>
 <div class="container">
-<div>
-  <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-  <%= link_to "Edit", edit_user_path(current_user) %>
-</div>
-<%= form_with model: @now_new, local:true do |f| %>
-<%= f.text_field :now_body %><br>
-<%= f.select :hobby_code, options_for_select({ "スポーツ" => "スポーツ", "プログラミング" => "プログラミング", "ゲーム" => "ゲーム", "料理" => "料理", "食事" => "食事", "読書" => "読書", "勉強" => "勉強", "映画" => "映画", "イベント" => "イベント", "その他" => "その他"}) %><br>
-<%= f.text_field :address %><br>
-<%= f.submit '趣meets!' %>
-<% end %>
+  <h2>Doing</h2>
+    <div>
+      <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+      <%= link_to "Edit", edit_user_path(current_user) %>
+    </div>
+    <div>
+      <%= form_with model: @now_new, local:true do |f| %>
+        <%= f.text_field :now_body %><br>
+        <%= f.select :hobby_code, options_for_select({ "スポーツ" => "スポーツ", "プログラミング" => "プログラミング", "ゲーム" => "ゲーム", "料理" => "料理", "食事" => "食事", "読書" => "読書", "勉強" => "勉強", "映画" => "映画", "イベント" => "イベント", "その他" => "その他"}) %><br>
+        <%= f.text_field :address %><br>
+        <%= f.submit '趣meets!' %>
+      <% end %>
+    </div>
 </div>
 
 <div class="container">
@@ -30,6 +31,7 @@
       <td>
         <%= attachment_image_tag now.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %><br>
         <%=link_to now.user.name, user_path(now.user) %>
+        <%= time_ago_in_words(now.created_at) %>
       </td>
       <td><%= now.now_body %></td>
       <td><%= now.hobby_code %></td>

@@ -25,6 +25,17 @@ class NowsController < ApplicationController
     redirect_to request.referer
   end
 
+  def edit
+    @now = Now.find(params[:id])
+  end
+
+  def update
+    @now = Now.find(params[:id])
+    @now.update(now_params)
+    @user = current_user
+    redirect_to user_path(@user)
+  end
+
   private
 
   def now_params

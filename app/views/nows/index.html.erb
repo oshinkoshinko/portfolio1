@@ -2,7 +2,7 @@
 <h2>Doing<h2>
 <%= form_with model: @now_new, local:true do |f| %>
 <%= f.text_field :now_body %><br>
-<%= f.select :hobby_code, options_for_select({ "スポーツ" => "1", "プログラミング" => "2" }) %><br>
+<%= f.select :hobby_code, options_for_select({ "スポーツ" => "スポーツ", "プログラミング" => "プログラミング", "ゲーム" => "ゲーム" }) %><br>
 <%= f.text_field :address %><br>
 <%= f.submit '趣meets!' %>
 <% end %>
@@ -28,7 +28,7 @@
       </td>
       <td><%= now.now_body %></td>
       <td><%= now.hobby_code %></td>
-      <td><%= now.address %></td>
+      <td>@ <%= now.address %></td>
       <% if current_user == now.user %>
        <td><%= link_to "Destroy", now_path(now.id), method: :delete %></td>
       <% end %>

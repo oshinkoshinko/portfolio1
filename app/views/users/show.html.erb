@@ -1,1 +1,7 @@
-user#show
+<div class="container">
+<h2>Profile</h2>
+<%= attachment_image_tag @user :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+<%= @user.name %>
+<%= @user.age %>歳
+<%= @user.introduction %>
+</div>

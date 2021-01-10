@@ -52,6 +52,11 @@
         <% end %>
       </td>
       <% end %>
+      <td>
+        <%= link_to now_reply_path(now) do %>
+          💭
+        <% end %>
+      </td>
       <% if current_user == now.user %>
        <td><%= link_to "Edit", edit_now_path(now.id) %></td>
        <td><%= link_to "Destroy", now_path(now.id), method: :delete %></td>

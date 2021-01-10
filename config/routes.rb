@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :nows, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
+    resources :replies, only: [:create, :destroy, :show, :edit, :update]
   end
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
 

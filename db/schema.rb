@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_071517) do
+ActiveRecord::Schema.define(version: 2021_01_10_074100) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2021_01_10_071517) do
     t.float "latitude"
     t.float "longitude"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.text "reply"
+    t.integer "user_id"
+    t.integer "now_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

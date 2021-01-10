@@ -1,5 +1,11 @@
 <div class="container">
   <h2>Edit Profile</h2>
-  <%= @user.name %>
-  
+  <%= form_with model: @user, local:true do |f| %>
+  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %><br>
+  <%= f.attachment_field :profile_image, placeholder:"ProfileImage" %><br>
+  <%= f.text_field :name, autofocus: true, placeholder:"Name" %><br>
+  <%= f.text_field :introduction, autofocus: true, placeholder:"Intoduction" %>
+  <%= f.submit "complete" %>
+  <% end %>
+
 </div>

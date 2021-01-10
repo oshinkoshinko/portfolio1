@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
 #  binding.pry
   @user = User.find(params[:id])
-  @nows = @user.nows.all
+  @nows = @user.nows.page(params[:page]).reverse_order
   @now = Now.new
   end
 

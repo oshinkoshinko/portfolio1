@@ -11,7 +11,7 @@ class NowsController < ApplicationController
   end
 
   def index
-    @nows = Now.all
+    @nows = Now.page(params[:page]).reverse_order
     @now_new = Now.new
   end
 

@@ -57,15 +57,21 @@
       <% end %>
       <td>
         <%= link_to now_reply_path(now.user.id, now.id) do %>
-          💭
+          <i class="far fa-comment-dots"></i>
         <% end %>
       </td>
-      <td>
       <% if current_user == now.user %>
-       <%= link_to "Edit", edit_now_path(now.id) %>
-       <%= link_to "Destroy", now_path(now.id), method: :delete %>
-      <% end %>
+      <td>
+       <%= link_to edit_now_path(now.id) do %>
+        <i class="fas fa-wrench"></i>
+       <% end %>
       </td>
+      <td>
+       <%= link_to now_path(now.id), method: :delete do %>
+        <i class="far fa-trash-alt"></i>
+       <% end %>
+      </td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

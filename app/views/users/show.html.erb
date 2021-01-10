@@ -53,24 +53,32 @@
         <% if now.favorited_by?(current_user) %>
       <td>
         <%= link_to now_favorites_path(now), method: :delete do %>
-          ❤️<%= now.favorites.count %>
+        <i class="fas fa-thumbs-up"></i>️<%= now.favorites.count %>
         <% end %>
       </td>
       <% else %>
       <td>
         <%= link_to now_favorites_path(now), method: :post do %>
-          ♡️<%= now.favorites.count %>
+        <i class="far fa-thumbs-up"></i>️<%= now.favorites.count %>
         <% end %>
       </td>
       <% end %>
       <td>
         <%= link_to now_reply_path(now.user.id, now.id) do %>
-          💭
+          <i class="far fa-comment-dots"></i>
         <% end %>
       </td>
       <% if current_user == now.user %>
-       <td><%= link_to "Edit", edit_now_path(now.id) %></td>
-       <td><%= link_to "Destroy", now_path(now.id), method: :delete %></td>
+       <td>
+         <%= link_to edit_now_path(now.id) do %>
+          <i class="fas fa-wrench"></i>
+         <% end %>
+       </td>
+       <td>
+         <%= link_to now_path(now.id), method: :delete do %>
+          <i class="far fa-trash-alt"></i>
+         <% end %>
+       </td>
       <% end %>
     </tr>
     <% end %>

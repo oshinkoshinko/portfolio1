@@ -7,3 +7,43 @@
 <%= link_to "Edit", edit_user_path(@user) %>
 <% end %>
 </div>
+
+<div class="container">
+<h2>Doing<h2>
+<%= form_with model: @now, local:true do |f| %>
+<%= f.text_field :now_body %><br>
+<%= f.select :hobby_code, options_for_select({ "スポーツ" => "スポーツ", "プログラミング" => "プログラミング", "ゲーム" => "ゲーム" }) %><br>
+<%= f.text_field :address %><br>
+<%= f.submit '趣meets!' %>
+<% end %>
+</div>
+
+<div class="container">
+  <h2>Timeline</h2>
+  <table class="table">
+  <thead>
+    <tr>
+      <td>User</td>
+      <td>Doing</td>
+      <td>Category</td>
+      <td>Place</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @nows.each do |now| %>
+    <tr>
+      <td>
+        <%= attachment_image_tag now.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %><br>
+        <%=link_to now.user.name, user_path(now.user) %>
+      </td>
+      <td><%= now.now_body %></td>
+      <td><%= now.hobby_code %></td>
+      <td>@ <%= now.address %></td>
+      <% if current_user == now.user %>
+       <td><%= link_to "Destroy", now_path(now.id), method: :delete %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

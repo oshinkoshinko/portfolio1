@@ -7,6 +7,7 @@ class RepliesController < ApplicationController
   end
 
   def show
+    @now = Now.find(params[:id])
   end
 
 end

@@ -1,0 +1,8 @@
+  <table class="table">
+    <tr>
+      <td>
+        <%= attachment_image_tag @now.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %><br>
+        <%=link_to @now.user.name, user_path(@now.user) %>
+      </td>
+      <td><%= @now.now_body %></td>
+  </table>

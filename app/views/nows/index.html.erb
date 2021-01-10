@@ -1,5 +1,10 @@
+
+<h2>Doing</h2>
 <div class="container">
-<h2>Doing<h2>
+<div>
+  <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+  <%= link_to "Edit", edit_user_path(current_user) %>
+</div>
 <%= form_with model: @now_new, local:true do |f| %>
 <%= f.text_field :now_body %><br>
 <%= f.select :hobby_code, options_for_select({ "スポーツ" => "スポーツ", "プログラミング" => "プログラミング", "ゲーム" => "ゲーム" }) %><br>

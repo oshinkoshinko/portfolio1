@@ -6,15 +6,15 @@
       </td>
       <td><%= @now.now_body %></td>
     </tr>
+    <% @now.replies.each do |reply| %>
     <tr>
-      <% @now.replies.each do |reply| %>
       <td>
         <%= attachment_image_tag reply.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %><br>
         <%=link_to reply.user.name, user_path(reply.user) %>
       </td>
       <td><%= reply.reply %></td>
-      <% end %>
     </tr>
+    <% end %>
     <tr>
       <td>
         <%= form_with(model:[@now, @reply_new], local:true) do |f| %>

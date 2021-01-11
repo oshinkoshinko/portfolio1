@@ -9,6 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <header>
     <% if user_signed_in? %>
       <li>
         <%= link_to "ホーム", nows_path %>
@@ -27,6 +28,8 @@
         <%= link_to "ログイン", new_user_session_path %>
       </li>
     <% end %>
+    <%= render 'layouts/search' %>
+    </header>
     <%= yield %>
   </body>
 </html>

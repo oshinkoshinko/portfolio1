@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy] do
     resource :relationships, only: [:create, :destroy]
     get 'follow' => 'relationships#follow'
-    get 'unfollow' => 'relationships#unfolloe'
+    get 'unfollow' => 'relationships#unfollow'
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -17,6 +17,8 @@ class RelationshipsController < ApplicationController
   end
 
   def unfollow
+    @user = User.find(params[:user_id])
+    @users = @user.follower_user
   end
 
 end

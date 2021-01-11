@@ -4,12 +4,7 @@
       <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
     </div>
     <div>
-      <%= form_with model: @now_new, local:true do |f| %>
-        <%= f.text_field :now_body %><br>
-        <%= f.select :hobby_code, options_for_select({ "スポーツ" => "スポーツ", "プログラミング" => "プログラミング", "ゲーム" => "ゲーム", "料理" => "料理", "食事" => "食事", "読書" => "読書", "勉強" => "勉強", "映画" => "映画", "イベント" => "イベント", "その他" => "その他"}) %><br>
-        <%= f.text_field :address %><br>
-        <%= f.submit '趣meets!' %>
-      <% end %>
+      <%= render 'nows/form', now: @now_new %>
     </div>
 </div>
 

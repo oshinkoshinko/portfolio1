@@ -25,7 +25,7 @@
   </thead>
   <tbody>
     <% @nows.each do |now| %>
-    <tr>
+    <tr id="now_<%= now.id %>">
       <td>
         <%= attachment_image_tag now.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %><br>
         <%=link_to now.user.name, user_path(now.user) %>
@@ -34,7 +34,9 @@
       <td><%= now.now_body %></td>
       <td><%= now.hobby_code %></td>
       <td>@ <%= now.address %></td>
-      <%= render 'favorites/favorite', now: now %>
+      <td class="favorite_btn">
+        <%= render 'favorites/favorite', now: now %>
+      </td>
       <td>
         <%= render 'replies/reply', now: now %>
       </td>

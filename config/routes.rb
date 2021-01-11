@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :replies, only: [:create, :destroy, :show, :edit, :update]
   end
-  resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
+  resources :users, only: [:index, :create, :show, :edit, :update, :destroy] do
+    resource :relationships, only: [:create, :destroy]
+    get 'follow' => 'relationships#follow'
+    get 'unfollow' => 'relationships#unfolloe'
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

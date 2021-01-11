@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>following</h2>
+  <% if @users.exists? %>
+    <%= @users.each do |user| %>
+      <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+      <%= user.name %>
+      <div>
+      <%= user.introduction %>
+      <%= render 'relationships/follow', user: user %>
+      </div>
+    <% end %>
+  <% else %>
+  <% end %>
+</div>

@@ -10,4 +10,12 @@ class RelationshipsController < ApplicationController
     redirect_to request.referer
   end
 
+  def follow
+    
+    
+  end
+
+  def unfollow
+  end
+
 end

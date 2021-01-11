@@ -36,9 +36,7 @@
       <td>@ <%= now.address %></td>
       <%= render 'favorites/favorite', now: now %>
       <td>
-        <%= link_to now_reply_path(now.user.id, now.id) do %>
-          <i class="far fa-comment-dots"></i>
-        <% end %>
+        <%= render 'replies/reply', now: now %>
       </td>
       <% if current_user == now.user %>
       <td>

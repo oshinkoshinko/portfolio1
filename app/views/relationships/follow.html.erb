@@ -6,7 +6,7 @@
       <%= user.name %>
       <div>
       <%= user.introduction %>
-      <%= render 'relationships/follow', user: user %>
+      <%= render 'relationships/unfollow_btn', user: user %>
       </div>
     <% end %>
   <% else %>

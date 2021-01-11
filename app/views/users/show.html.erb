@@ -66,19 +66,7 @@
       <td><%= now.now_body %></td>
       <td><%= now.hobby_code %></td>
       <td>@ <%= now.address %></td>
-        <% if now.favorited_by?(current_user) %>
-      <td>
-        <%= link_to now_favorites_path(now), method: :delete do %>
-        <i class="fas fa-thumbs-up"></i>️<%= now.favorites.count %>
-        <% end %>
-      </td>
-      <% else %>
-      <td>
-        <%= link_to now_favorites_path(now), method: :post do %>
-        <i class="far fa-thumbs-up"></i>️<%= now.favorites.count %>
-        <% end %>
-      </td>
-      <% end %>
+      <%= render 'favorites/favorite', now: now %>
       <td>
         <%= link_to now_reply_path(now.user.id, now.id) do %>
           <i class="far fa-comment-dots"></i>

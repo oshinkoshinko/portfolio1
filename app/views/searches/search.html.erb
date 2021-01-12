@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Search Result</h2>
+  <table class="table">
+  <thead>
+    <tr>
+      <td>User</td>
+      <td>Doing</td>
+      <td>Category</td>
+      <td>Place</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @nows.each do |now| %>
+    <tr id="now_<%= now.id %>">
+      <td>
+        <%= attachment_image_tag now.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %><br>
+        <%=link_to now.user.name, user_path(now.user) %>
+        <%= time_ago_in_words(now.created_at) %>
+      </td>
+      <td><%= now.now_body %></td>
+      <td><%= now.hobby_code %></td>
+      <td>@ <%= now.address %></td>
+      <td class="favorite_btn">
+        <%= render 'favorites/favorite', now: now %>
+      </td>
+      <td>
+        <%= render 'replies/reply', now: now %>
+      </td>
+      <%= render 'nows/edit_destroy', now: now %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+</div>

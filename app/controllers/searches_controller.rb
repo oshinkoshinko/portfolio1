@@ -1,10 +1,8 @@
 class SearchesController < ApplicationController
 
   def search
-   # binding.pry
-    @content = params[:content]
-    @hobby_code = params[:hobby_code]
-
+    @nows = Now.where('now_body LIKE ?', "%#{params[:content]}%")
+  # binding.pry
   end
 
 end

@@ -1,5 +1,6 @@
 <div class="container">
   <h2>Search Result</h2>
+  <% if @nows.present? %>
   <table class="table">
   <thead>
     <tr>
@@ -35,6 +36,9 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+  <p>投稿がありません。</p>
+<% end %>
 </div>
 
 </div>

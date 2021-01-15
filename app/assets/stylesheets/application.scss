@@ -16,3 +16,10 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+.jumbotron {
+  background: url(drinking.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

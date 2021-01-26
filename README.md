@@ -1,5 +1,7 @@
 # README
 
+ポートフォリオ作成の練習用です。
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

@@ -13,6 +13,10 @@ class NowsController < ApplicationController
   def index
     @nows = Now.page(params[:page]).reverse_order
     @now_new = Now.new
+
+    #ranking機能実装
+    @all_ranks = Now.find(Favorite.group(:now_id).order('count(now_id) desc').limit(3).pluck(:now_id))
+
   end
 
   def show

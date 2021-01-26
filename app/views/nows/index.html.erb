@@ -47,5 +47,10 @@
         </tbody>
       </table>
       <%= paginate @nows %>
+  <div class="rank col-lg-3">
+    <% @all_ranks.each.with_index(1) do |now, i| %>
+    第<%= i %>位<%= now.user.name %><br>
+    <% end %>
+  </div>
   </div>
 </div>

@@ -12,6 +12,7 @@
         <%= f.text_field :time %>
         <%= f.label "場所" %>
         <%= f.text_field :place %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.submit "開催" %>
       <% end %>
     </div>
@@ -36,7 +37,7 @@
             <td><%= event.year %></td>
             <td><%= event.place %></td>
             <td>
-              <%= link_to "参加", detail_events_path(event.id) %>
+              <%= link_to "申し込む", detail_event_path(event.id) %>
             </td>
           </tr>
           <% end %>

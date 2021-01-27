@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'chats/:id' => 'chats#show'
   resources :chats, only: [:create, :destroy]
   resources :events do
-    collection do
+    member do
       get :detail
     end
   end

@@ -1,5 +1,19 @@
 <div class="container">
-  <div class="row">
     <h2>イベント詳細</h2>
-  </div>
+    <table class="table event_detail mb-5">
+      <tbody>
+      <tr>
+        <th>ホスト</th>
+        <td><%= @event.user.name %></td>
+      </tr>
+      <tr>
+        <th>イベント名</th>
+        <td><%= @event.title %></td>
+      </tr>
+      <tr>
+        <th>イベント内容</th>
+        <td><%= @event.introduction %></td>
+      </tr>
+      </tbody>
+    </table>
 </div>

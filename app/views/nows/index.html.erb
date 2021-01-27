@@ -1,11 +1,13 @@
 <div class="container">
-  <h2>Doing</h2>
+  <div class="row">
+    <h2>Doing</h2>
     <div>
       <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
     </div>
     <div>
       <%= render 'nows/form', now: @now_new %>
     </div>
+  </div>
 </div>
 
 <div class="container">
@@ -49,12 +51,12 @@
       <%= paginate @nows %>
       </div>
     </div>
-  <div class="container rank mt-4 mb-5">
+  <div class="container mt-4">
     <h4>いいねランキング</h4>
-      <div class="row">
+      <div class="row mb-5">
         <div>
           <% @all_ranks.each.with_index(1) do |now, i| %>
-          第<%= i %>位<%= now.user.name %>
+          第<%= i %>位    <%= link_to now.user.name, user_path(now.user) %>
           ・・・<%= now.now_body %>
           いいね<%= now.favorites.count %><br>
           <% end %>

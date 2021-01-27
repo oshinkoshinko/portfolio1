@@ -11,6 +11,10 @@ class EventsController < ApplicationController
     redirect_to request.referer
   end
 
+
+  def detail
+  end
+
   def event_params
     params.require(:event).permit(:title, :introduction, :price, :date, :month, :year, :time, :place)
   end

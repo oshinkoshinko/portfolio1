@@ -16,7 +16,7 @@
       <% end %>
     </div>
   </div>
-  <div class="row mt-5">
+  <div class="row mt-5 mb-5">
     <div class="event_lists">
       <table class="table">
         <thead>
@@ -25,17 +25,21 @@
             <th>内容</th>
             <th>日時</th>
             <th>場所</th>
+            <th>参加</th>
           </tr>
         </thead>
         <tbody>
+          <% @events.each do |event| %>
           <tr>
-            <% @events.each do |event| %>
             <td><%= event.title %></td>
             <td><%= event.introduction %></td>
             <td><%= event.year %></td>
             <td><%= event.place %></td>
-            <% end %>
+            <td>
+              <%= link_to "参加", detail_events_path(event.id) %>
+            </td>
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>

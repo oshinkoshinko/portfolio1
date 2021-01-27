@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'search' => 'searches#search'
   get 'chats/:id' => 'chats#show'
   resources :chats, only: [:create, :destroy]
+  resources :events
 
   get '/rooms/' => 'rooms#index'
 

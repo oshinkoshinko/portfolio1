@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :follower_user, through: :followed, source: :follower
   has_many :chats
   has_many :user_rooms
+  has_many :event_users
 
   def follow(user_id)
     follower.create(followed_id: user_id)

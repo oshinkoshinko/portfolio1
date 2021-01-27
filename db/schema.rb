@@ -10,12 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_033711) do
+ActiveRecord::Schema.define(version: 2021_01_27_092157) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "user_id"
     t.integer "room_id"
     t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.integer "payment_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "introduction"
+    t.integer "price"
+    t.integer "date"
+    t.integer "month"
+    t.integer "year"
+    t.string "time"
+    t.string "place"
+    t.string "event_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

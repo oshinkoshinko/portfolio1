@@ -9,9 +9,11 @@
         <%= f.label "開催日" %>
         <%= f.text_field :year, size: 4 %>年<%= f.text_field :month, size: 2 %>月<%= f.text_field :date, size: 2 %>日<br>
         <%= f.label "時間" %>
-        <%= f.text_field :time %>
+        <%= f.text_field :time %><br>
         <%= f.label "場所" %>
-        <%= f.text_field :place %>
+        <%= f.text_field :place %><br>
+        <%= f.label "参加費" %>
+        <%= f.text_field :price, size: 6 %>円
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.submit "開催" %>
       <% end %>

@@ -14,6 +14,22 @@
         <th>イベント内容</th>
         <td><%= @event.introduction %></td>
       </tr>
+      <tr>
+        <th>日時</th>
+        <td><%= @event.year %>年<%= @event.month %>月<%= @event.date %>日<%= @event.time %></td>
+      </tr>
+      <tr>
+        <th>場所</th>
+        <td><%= @event.place %></td>
+      </tr>
+      <tr>
+        <th>参加費</th>
+        <td><%= @event.price %>円</td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><%= link_to "参加", </td>
+      </tr>      
       </tbody>
     </table>
 </div>

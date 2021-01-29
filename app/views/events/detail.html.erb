@@ -28,7 +28,7 @@
       </tr>
       <tr>
         <th></th>
-        <td><%= link_to "参加", new_event_user_path, class: "btn btn-primary" %></td>
+        <td><%= link_to "参加", event_users_path(event_id: @event.id), method: :post, class: "btn btn-primary" %></td>
       </tr>
       </tbody>
     </table>

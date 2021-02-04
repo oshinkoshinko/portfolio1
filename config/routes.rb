@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'spots/create'
   devise_for :users
 
   root to: 'homes#top'
   get 'homes/about'
+
+  resources :spot, only: [:index]
+  post 'spot' => 'spots#create'
 
   resources :nows, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]

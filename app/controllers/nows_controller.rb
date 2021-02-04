@@ -8,6 +8,8 @@ class NowsController < ApplicationController
     @now.user_id = current_user.id
     @now.save
     redirect_to request.referer
+
+
   end
 
   def index
@@ -16,6 +18,9 @@ class NowsController < ApplicationController
 
     #ranking機能実装
     @all_ranks = Now.find(Favorite.group(:now_id).order('count(now_id) desc').limit(3).pluck(:now_id))
+
+    @spot = Spot.new
+    @spots = Spot.all
 
   end
 
@@ -45,4 +50,6 @@ class NowsController < ApplicationController
   def now_params
     params.require(:now).permit(:now_body, :hobby_code, :address, :latitude, :longitude)
   end
+
+
 end
